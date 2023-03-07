@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800;900&display=swap');
+
+$black: black;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+p, h1, h2, h3, b {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Golos Text', sans-serif;
+}
+html {
+	scroll-behavior: smooth;
+}
+
+#app::-webkit-scrollbar {
+	display: none;
+}
+#app {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100vh;
+	max-height: -webkit-fill-available;
+	width: 100%;
+	background-color: green;
+	overflow: auto;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.game {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	min-height: 100vh;
+	background-color: orange;
+}
+
+.fullScreen {
+	display: flex;
+	width: 100%;
+	height: 100px;
+	min-height: 100vh;
+}
+.content {
+	display: flex;
+	width: 90%;
+	max-width: 1200px;
+	height: calc((100% - 60px) - 110px);
+	margin-top: 40px;
+}
+.fcr {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.fcc {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.scoreBoard {
+	padding-top: 120px;
+	background-color: #006f6fed;
+}
+.gameContent {
+	padding-top: 120px;
+	background-color: aqua;
+}
+// HEADER
+.gameHeader {
+	position: fixed;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	width: -webkit-fill-available;
+	background-color: rgba($color: $black, $alpha: 0.5);
+	
+	h1 {
+		color: white;
+		span { color: red; }
+	}
+	h2 {
+		color: silver;
+		font-size: 20px;
+		span { color: red; }
+	}
+	p {
+		color: silver;
+		span { color: orange; }
+	}
+}
+.headedrGrid {
+	display: grid;
+	grid-template-rows: 30px 50px;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 10px;
+	grid-template-areas:
+		"logo next"
+		"current current";
+	width: 90%;
+	max-width: 1200px;
+}
+.headerGridItem {
+	display: flex;
+	background-color: rgba($color: $black, $alpha: 0.5);
+	border-color: rgba($color: $black, $alpha: 0.7);
+	border-radius: 5px;
+	&:nth-of-type(1) {
+		grid-area: logo;
+	}
+	&:nth-of-type(2) {
+		grid-area: next;
+	}
+	&:nth-of-type(3) {
+		grid-area: current;
+	}
+}
+// SCROLLER
+.scroller {
+	z-index: 10;
+	width: -webkit-fill-available;
+	height: 60px;
+	position: fixed;
+	bottom: 0;
+	background-color: rgba($color: $black, $alpha: 0.5);
+	cursor: pointer;
+	border: none;
+	h3 {
+		color: white;
+		font-size: 30px;
+	}
+}
+.bi-arrow-down-circle-fill {
+	color: white;
+}
+// SCOREBOARD
+.tableContainer {
+	display: flex;
+	width: 90%;
+	max-width: 1200px;
+	height: calc((100% - 60px) - 110px);
+	margin-top: 40px;
+	overflow: auto;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: rgba($color: $black, $alpha: 0.5);
+	table {
+		width: 100%;
+
+	}
+	th {
+		background-color: white;
+		color: #006f6fed;
+		padding: 10px
+	}
+	td {
+		background-color: azure;
+		font-size: 16px;
+		height: 20px;
+		padding: 0 10px;
+	}
+}
+.tableColumn {
+	font-weight: 700;
+	:nth-child(1) {
+		text-align: center;
+	}
+	:nth-child(2) {
+		text-align: left;
+	}
+	:nth-child(3) {
+		text-align: center;
+	}
+	:nth-child(4) {
+		text-align: center;
+	}
+	.gold {
+		background-color: gold !important;
+	}
+	.silver {
+		background-color: silver !important;
+	}
+	.bronze {
+		background-color: #cd7f32 !important;
+	}
+}
+// GAME CONTENT
+.playerBody {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto 1fr;
+	grid-gap: 20px;
+	grid-template-areas: 
+		"username"
+		"status" 
+		"selection";
+	margin: 10px;
+	justify-content: center;
+	align-items: center;
+}
+.playerBodySlot {
+	background-color: rgba($color: $black, $alpha: 0.5);
+	height: -webkit-fill-available;
+	padding: 10px;
+	border-radius: 5px;
+	color: white !important;
+	font-size: 20px;
+	:nth-of-type(1) {
+		grid-area: 'username';
+	}
+	:nth-of-type(1) {
+		grid-area: 'status';
+	}
+	:nth-of-type(1) {
+		grid-area: 'selection';
+	}
+}
+.middlePanel {
+	width: 100%;
+	height: auto !important;
+	padding: 10px;
+	margin: 10px;
+	justify-content: flex-start;
+	border-radius: 5px;
+	background-color: rgba($color: white, $alpha: 0.5);
+}
+
