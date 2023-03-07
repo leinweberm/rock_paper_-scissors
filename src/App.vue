@@ -1,7 +1,7 @@
-
 <template>
 	<div id="app">
-		{{ 'TEST' }}
+		<game-body>
+		</game-body>
 	</div>
 </template>
 <style scoped>
